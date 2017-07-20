@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MikeNewm32/pizza-express#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "hbs": "^4.0.1"
   }
 }
