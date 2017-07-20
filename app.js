@@ -4,12 +4,9 @@ const app = express();
 app.set("view engine", "hbs");
 app.set('views', './views');
 
-app.get('/view/:index', (req, res, next) => {
-    res.render(index.hbs, $,{req:params.index});
+app.get('/views/index', (req, res, next) => {
+    res.render(index)
 });
-
-const layout = require('./views/layout');
-    app.use('/layout', layout);
 
 const order = require('./views/order');
     app.use('/order', order);
