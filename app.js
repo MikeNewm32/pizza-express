@@ -1,25 +1,24 @@
-var express = require('express');
-var hbs = require('hbs');
-var app = express();
+const express = require('express');
+const hbs = require('hbs');
+const app = express();
 app.set("view engine", "hbs");
 app.set('views', './views');
 
-
-
-app.get("/", (req, res) => {
-    res.send("Welcome to Pizza Express!")
+app.get('/view/:index', (req, res, next) => {
+    res.render(index.hbs, $,{req:params.index});
 });
 
-app.get("/topping/:type", (req, res, next) => {
-    res.send(`${req.params.type} pizza! What a great choice!`);
-});
+const layout = require('./views/layout');
+    app.use('/layout', layout);
 
-app.get("/order/:amount/:size", (req, res, next) => {
-    res.send(`Your order for ${req.params.amount} ${req.params.size} pizzas will be ready in 1 minute!`)
-});
+const order = require('./views/order');
+    app.use('/order', order);
+
+const toppings = require('./views/toppings');
+    app.use('/toppings', toppings);
 
 
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log('Listening on port ' + port);
 });
